@@ -11,7 +11,6 @@ const readFile = (filename) => {
 };
 
 export default (path1, path2) => {
-  console.log(getPath(path1), getPath(path2));
   const data1 = JSON.parse(readFile(path1));
   const data2 = JSON.parse(readFile(path2));
 
