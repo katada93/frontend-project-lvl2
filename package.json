@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/katada93/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/katada93/frontend-project-lvl2/actions)",
   "main": "src/index.js",
-  "type": "module",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
@@ -19,12 +18,14 @@
   "bugs": {
     "url": "https://github.com/katada93/frontend-project-lvl2/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/katada93/frontend-project-lvl2#readme",
   "dependencies": {
     "commander": "^9.3.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@jest/globals": "^28.1.0",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
