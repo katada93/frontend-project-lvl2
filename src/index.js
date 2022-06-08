@@ -1,18 +1,29 @@
 import path from 'path';
-import fs from 'fs';
 import _ from 'lodash';
+import yaml from 'js-yaml';
+import readFile from './utils.js';
 
-const getPath = (filename) => path.resolve(process.cwd(), '__fixtures__', filename);
-const readFile = (filename) => {
-  const filepath = getPath(filename);
-  const data = fs.readFileSync(filepath, 'utf-8');
-
-  return data;
+const parsers = {
+  json: JSON.parse,
+  yml: yaml.load,
 };
 
-export default (path1, path2) => {
-  const data1 = JSON.parse(readFile(path1));
-  const data2 = JSON.parse(readFile(path2));
+const parse = (data, fileformat) => {
+  const func = parsers[fileformat];
+
+  return func(data);
+};
+
+const getParesedData = (file) => {
+  const data = readFile(file);
+  const fileformat = path.extname(file).substring(1);
+
+  return parse(data, fileformat);
+};
+
+export default (file1, file2) => {
+  const data1 = getParesedData(file1);
+  const data2 = getParesedData(file2);
 
   const keys = _.union(_.keys(data1), _.keys(data2));
   const sortedKeys = _.sortBy(keys);
