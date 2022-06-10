@@ -24,7 +24,6 @@ const calculateDiff = (data1, data2) => {
     return { name: node, type: 'unchanged', value: data1[node] };
   });
 
-  console.log(result);
   return _.sortBy(result, 'name');
 };
 
