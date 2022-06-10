@@ -1,25 +1,25 @@
 import path from 'path';
 import yaml from 'js-yaml';
-import { readFile } from './utils.js';
-import { calculateDiff } from './calculateDiff.js';
-import { format } from './formatters/index.js';
+import readFile from './utils.js';
+import calculateDiff from './calculateDiff.js';
+import format from './formatters/index.js';
 
 const parsers = {
   json: JSON.parse,
   yml: yaml.load,
 };
 
-const parse = (data, fileformat) => {
-  const func = parsers[fileformat];
+const parseData = (data, fileformat) => {
+  const parse = parsers[fileformat];
 
-  return func(data);
+  return parse(data);
 };
 
 const getParesedData = (file) => {
   const data = readFile(file);
   const fileformat = path.extname(file).substring(1);
 
-  return parse(data, fileformat);
+  return parseData(data, fileformat);
 };
 
 export default (file1, file2, type = 'stylish') => {

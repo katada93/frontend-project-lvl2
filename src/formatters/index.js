@@ -1,6 +1,6 @@
-import { formatJSON } from './json.js';
-import { formatPlain } from './plain.js';
-import { formatStylish } from './stylish.js';
+import formatJSON from './json.js';
+import formatPlain from './plain.js';
+import formatStylish from './stylish.js';
 
 const formats = {
   stylish: formatStylish,
@@ -8,4 +8,4 @@ const formats = {
   json: formatJSON,
 };
 
-export const format = (diff, type) => formats[type](diff);
+export default (diff, type) => formats[type](diff);

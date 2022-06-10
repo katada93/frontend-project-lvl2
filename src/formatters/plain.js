@@ -17,7 +17,7 @@ const getNodeName = (node, ancestor) => {
   return `${ancestor}.${node.name}`;
 };
 
-export const formatPlain = (diff) => {
+const formatPlain = (diff) => {
   const iter = (newDiff, ancestor = '') => {
     const lines = newDiff
       .map((node) => {
@@ -42,3 +42,5 @@ export const formatPlain = (diff) => {
   };
   return iter(diff);
 };
+
+export default formatPlain;

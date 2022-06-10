@@ -15,7 +15,7 @@ const getString = (value, spaces = 0) => {
   return `{\n${innerValue}\n${getIdent(spaces + 1)}}`;
 };
 
-export const formatStylish = (diff) => {
+const formatStylish = (diff) => {
   const iter = (newDiff, spaces = 1) => {
     const lines = newDiff.map((node) => {
       const diffType = {
@@ -35,3 +35,5 @@ export const formatStylish = (diff) => {
   };
   return iter(diff);
 };
+
+export default formatStylish;

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export const calculateDiff = (data1, data2) => {
+const calculateDiff = (data1, data2) => {
   const keys = _.union(_.keys(data1), _.keys(data2));
 
   const result = keys.map((node) => {
@@ -26,3 +26,5 @@ export const calculateDiff = (data1, data2) => {
 
   return _.sortBy(result, 'name');
 };
+
+export default calculateDiff;
